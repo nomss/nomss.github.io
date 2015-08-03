@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html ng-app>
+<!doctype html>
+<html ng-app="todoApp">
 <head>
 <link href="css/style.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-<script src="js/controller.js"></script>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="js/todo.js"></script>
 </head>
 <body>
-test 1
-
-<p>This is a paragraph.</p>
-<p>This is another paragraph.</p>
-
-<button>Click me</button>
-
-<div>
-<label>Name:</label>
-<input type="text" ng-model="yourName" placeholder="Enter a name here">
-<hr>
-<h1>Hello {{yourName}}!</h1>
-</div>
-
+	<h2>Todo</h2>
+	<div ng-controller="TodoListController as todoList">
+		<span>{{todoList.remaining()}} of {{todoList.todos.length}}
+			remaining</span> [ <a href="" ng-click="todoList.archive()">archive</a> ]
+		<ul class="unstyled">
+			<li ng-repeat="todo in todoList.todos"><input type="checkbox"
+				ng-model="todo.done"> <span class="done-{{todo.done}}">{{todo.text}}</span>
+			</li>
+		</ul>
+		<form ng-submit="todoList.addTodo()">
+			<input type="text" ng-model="todoList.todoText" size="30"
+				placeholder="add new todo here"> <input class="btn-primary"
+				type="submit" value="add">
+		</form>
+	</div>
 </body>
 </html>
+
