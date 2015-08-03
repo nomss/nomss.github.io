@@ -6,7 +6,7 @@ $(document).ready(function() {
 	$.ajax({
 		url : "https://restcountries.eu/rest/v1/name/aruba?fullText=true"
 	}).then(function(data) {
-		$('.greeting-id').append(data);
+		$('.greeting-id').append('test');
 	});
 
 });
