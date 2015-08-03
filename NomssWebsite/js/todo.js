@@ -1,5 +1,5 @@
 
-angular.module('todoApp', []).controller('TodoListController', function() {
+angular.module('myAngularApp', []).controller('TodoListController', function() {
 	var todoList = this;
 	todoList.todos = [ {
 		text : 'learn angular',
